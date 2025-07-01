@@ -5,7 +5,6 @@ import ProjectTitle from '@/components/projects/ProjectTitle'
 import Paragraph from '@/components/projects/Paragraph'
 import { ProjectMain, SingleProject } from '@/models/Projects'
 import SectionTitle from '@/components/projects/SectionTitle'
-import { content } from 'googleapis/build/src/apis/content'
 import ContentSwitch from '@/components/projects/ContentSwitch'
 
 type Params = Promise<{ projectId: string }>
@@ -25,7 +24,7 @@ export default async function SingleProjectPage({
   const { projectId } = await params
   const res = await getPage(projectId)
 
-  if ('error' in res) {
+  if ('error' in res || !res.data) {
     return <div>Project not found.</div>
   }
 

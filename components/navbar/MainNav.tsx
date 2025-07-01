@@ -1,28 +1,16 @@
 'use client'
 
 import Link from 'next/link'
-import { useSession, signOut } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
-import { Loader2Icon } from 'lucide-react'
 
 import { Button } from '../ui/Button'
 import { SidebarProps } from '@/lib/types'
 import { cn } from '@/lib/utils'
 import ThemeSwitch from '../themes/ThemeSwitch'
-import { useTargetUrl, useIsHiddenPath } from '@/hooks/url'
+import { useTargetUrl } from '@/hooks/url'
 
-function MainNav({ open, setOpen }: SidebarProps) {
+function MainNav({ open }: SidebarProps) {
   const router = useRouter()
-
-  // ====== Sign Out Button Handlers ======
-  const clickHandler = async () => {
-    if (status === 'authenticated') {
-      await signOut({ callbackUrl: '/dev', redirect: true })
-    } else if (status === 'unauthenticated') {
-      router.push('/dev/login')
-    }
-    setOpen(false)
-  }
 
   return (
     <div className={cn('hidden items-center gap-4', open ? '' : 'md:flex')}>

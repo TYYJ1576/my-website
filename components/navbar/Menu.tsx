@@ -1,18 +1,14 @@
 import Link from 'next/link'
 import { useTheme } from 'next-themes'
-import { useSession, signOut } from 'next-auth/react'
-import { useRouter } from 'next/navigation'
-import { Loader2Icon } from 'lucide-react'
 
 import { Button } from '../ui/Button'
 import { Switch } from '../ui/Switch'
 import { Label } from '../ui/Label'
-import { useTargetUrl, useIsHiddenPath } from '@/hooks/url'
+import { useTargetUrl } from '@/hooks/url'
 import { SidebarProps } from '@/lib/types'
 
 function Menu({ setOpen }: SidebarProps) {
   const { setTheme, resolvedTheme } = useTheme()
-  const router = useRouter()
 
   const normalClickHandler = () => {
     setOpen(false)
