@@ -1,6 +1,6 @@
 'use client'
 
-import { Timeline, Icon, Progress } from '@/components/ui'
+import { Timeline, Icon } from '@/components/ui'
 
 export default function AboutPage() {
   const data = [
@@ -52,7 +52,7 @@ export default function AboutPage() {
               <li>Designed and implemented STEM Education teaching plans.</li>
               <li>
                 Trained problem-solving skills by giving instant technique
-                support to students' ideas.
+                support to students&apos; ideas.
               </li>
             </ul>
           </div>
