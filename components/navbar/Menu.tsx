@@ -67,9 +67,11 @@ function Menu({ setOpen }: SidebarProps) {
               <Switch
                 checked={resolvedTheme === 'dark' ? true : false}
                 onCheckedChange={() => {
-                  resolvedTheme === 'dark'
-                    ? setTheme('light')
-                    : setTheme('dark')
+                  if (resolvedTheme === 'dark') {
+                    setTheme('light')
+                  } else {
+                    setTheme('dark')
+                  }
                 }}
               />
               <Label className="text-zinc-500">{resolvedTheme} Mode</Label>
