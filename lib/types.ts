@@ -1,4 +1,4 @@
-import type { SVGProps } from 'react'
+import { ProjectsDocument } from '@/models/Projects'
 
 export interface SidebarProps {
   open: boolean
@@ -47,8 +47,14 @@ export interface BasicInfo {
   tags: string[]
 }
 
-export interface ProjectsBrowserResponseType {
+export interface PageBrowserResponseType {
   success?: string
   error?: string
-  data?: any
+  data?: ProjectsDocument | null
+}
+
+export interface BasicInfoResponseType {
+  success?: string
+  error?: string
+  data?: BasicInfo[] | null
 }

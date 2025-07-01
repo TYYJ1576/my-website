@@ -1,15 +1,12 @@
 'use client'
 
 import { ThemeProvider } from 'next-themes'
-import { SessionProvider } from 'next-auth/react'
 import {
   QueryClient,
   QueryClientProvider,
   isServer,
 } from '@tanstack/react-query'
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import * as React from 'react'
-import { ReactQueryStreamedHydration } from '@tanstack/react-query-next-experimental'
 
 type Props = {
   children?: React.ReactNode
@@ -41,14 +38,9 @@ function Provider({ children }: Props) {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <ReactQueryStreamedHydration>
-        <SessionProvider>
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            {children}
-          </ThemeProvider>
-        </SessionProvider>
-      </ReactQueryStreamedHydration>
-      <ReactQueryDevtools initialIsOpen={false} />
+      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        {children}
+      </ThemeProvider>
     </QueryClientProvider>
   )
 }

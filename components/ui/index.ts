@@ -1,6 +1,5 @@
 import { Button } from './Button'
 import { GridBackgroundDemo } from './GridBackgroundDemo'
-import { Input } from './Input'
 import { Label } from './Label'
 import { Switch } from './Switch'
 import { TextGenerateEffect } from './TextGenerateEffect'
@@ -12,7 +11,6 @@ import { Progress } from './Progress'
 export {
   Button,
   GridBackgroundDemo,
-  Input,
   Label,
   Switch,
   TextGenerateEffect,

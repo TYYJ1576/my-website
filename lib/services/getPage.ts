@@ -1,19 +1,20 @@
 import { connectDB } from '@/lib/mongodb/mongodb'
-import { ProjectsBrowserResponseType } from '@/lib/types'
+import { PageBrowserResponseType } from '@/lib/types'
 import { Projects } from '@/models'
+import { ProjectsDocument } from '@/models/Projects'
 import { Types } from 'mongoose'
 
 export const getPage = async (
   _id: string
-): Promise<ProjectsBrowserResponseType> => {
+): Promise<PageBrowserResponseType> => {
   'use cache'
   try {
     await connectDB()
 
     // Get only basic information from all the projects
-    const projectsInfo: any = await Projects.findOne({
+    const projectsInfo = (await Projects.findOne({
       _id: new Types.ObjectId(_id),
-    }).lean()
+    }).lean()) as ProjectsDocument | null
 
     if (!projectsInfo) {
       return { error: 'Project not found' }

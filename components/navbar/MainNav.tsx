@@ -12,7 +12,6 @@ import ThemeSwitch from '../themes/ThemeSwitch'
 import { useTargetUrl, useIsHiddenPath } from '@/hooks/url'
 
 function MainNav({ open, setOpen }: SidebarProps) {
-  const { status } = useSession()
   const router = useRouter()
 
   // ====== Sign Out Button Handlers ======
@@ -53,35 +52,6 @@ function MainNav({ open, setOpen }: SidebarProps) {
           Projects
         </Link>
       </Button>
-      {useIsHiddenPath() && (
-        <div>
-          {status === 'unauthenticated' && (
-            <Button
-              asChild
-              variant="ghost"
-              className="text-zinc-500 dark:hover:text-zinc-50 hover:text-zinc-950 text-base cursor-pointer"
-              onClick={clickHandler}
-            >
-              <p>Log In</p>
-            </Button>
-          )}
-          {status === 'authenticated' && (
-            <Button
-              asChild
-              variant="ghost"
-              className="text-zinc-500 dark:hover:text-zinc-50 hover:text-zinc-950 text-base cursor-pointer"
-              onClick={clickHandler}
-            >
-              <p>Sign Out</p>
-            </Button>
-          )}
-          {status === 'loading' && (
-            <Button status="loading" disabled>
-              <Loader2Icon className="animate-spin" />
-            </Button>
-          )}
-        </div>
-      )}
     </div>
   )
 }
