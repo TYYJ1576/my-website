@@ -1,5 +1,3 @@
-'use client'
-
 import { Timeline, Icon } from '@/components/ui'
 
 export default function AboutPage() {
