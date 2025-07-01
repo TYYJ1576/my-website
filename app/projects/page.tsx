@@ -2,10 +2,16 @@ import { getProjectInfo } from '@/lib/services/project'
 import ProjectCard from '@/components/projects/ProjectCard'
 import { BasicInfo } from '@/lib/types'
 
-export const revalidate = 3600 // 1小時 revalidate 一次 (ISR機制)
+export const revalidate = 3600
+
+function delay(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms))
+}
 
 export default async function ProjectPage() {
   const projectData = await getProjectInfo()
+
+  await delay(1500)
 
   if (
     !projectData.success ||
