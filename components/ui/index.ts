@@ -7,6 +7,7 @@ import { StickyBanner } from './sticky-banner'
 import { Timeline } from './Timeline'
 import { EvervaultCard, Icon } from './EverVaultCard'
 import { Progress } from './Progress'
+import Spinner from './Spinner'
 
 export {
   Button,
@@ -19,4 +20,5 @@ export {
   EvervaultCard,
   Icon,
   Progress,
+  Spinner,
 }
